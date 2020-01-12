@@ -3,7 +3,7 @@ name: Auto Rebase
 on:
   push:
     branches:
-      - auto-marge
+      - master
     tags:
       - "!*"
   schedule:
@@ -42,4 +42,4 @@ jobs:
         REBASE_GITHUB_TOKEN: ${{ secrets.REBASE_GITHUB_TOKEN }}
         GIT_URL: ${{ secrets.GIT_URL }}
         GIT_UPSTREAM_URL: ${{ secrets.GIT_UPSTREAM_URL }}
-      run: bash marge.sh $GITHUB_USERNAME $GITHUB_TOKEN $GIT_URL $GIT_UPSTREAM_URL
+      run: bash marge.sh $GITHUB_USERNAME $REBASE_GITHUB_TOKEN $GIT_URL $GIT_UPSTREAM_URL
